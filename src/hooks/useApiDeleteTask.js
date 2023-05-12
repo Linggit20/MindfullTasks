@@ -1,10 +1,8 @@
 import { useState } from "react"
 import api from "../lib/api"
-import { useApiTasks } from "./useApiTask"
 
 export const useApiDeleteTask = (apiSuccess, apiError) => {
   const [token, setToken] = useState(localStorage.getItem("token"))
-  const [ , , , , , , , , , , , , , , fetchTasks, fetchTasksCompleted, fetchTasksDeleted, , ] = useApiTasks()
 
   // Handling user delete task
   const handleDeleteTask = async (taskId) => {
@@ -15,8 +13,6 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-      fetchTasks()
-      fetchTasksDeleted()
 
     } catch (error) {
       apiError(`An error occurred while deleting task ${taskId}:`, error)
@@ -32,8 +28,6 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-      fetchTasks()
-      fetchTasksCompleted()
 
     } catch (error) {
       apiError(`An error occurred while completing task ${taskId}:`, error)
@@ -49,7 +43,6 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-      fetchTasksCompleted()
 
     } catch (error) {
       apiError(error.message)
@@ -65,7 +58,6 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-      fetchTasksCompleted()
 
     } catch (error) {
       apiError(error.message)
@@ -81,7 +73,6 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-      fetchTasksDeleted()
 
     } catch (error) {
       apiError(error.message)
@@ -97,8 +88,6 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-      fetchTasksDeleted()
-
     } catch (error) {
       apiError(error.message)
     }

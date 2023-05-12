@@ -232,17 +232,6 @@ const Task = () => {
     }
   }
 
-  const completeTask = (taskId) => {
-    handleCompleteTask(taskId)
-    fetchTasks()
-    fetchTasksCompleted()
-  }
-  const deleteTask = (taskId) => {
-    handleDeleteTask(taskId)
-    fetchTasks()
-    fetchTasksDeleted()
-  }
-
   return (
     <>
       <ToastContainer
@@ -289,7 +278,7 @@ const Task = () => {
                 />
               </section>
               {isLoading ? (
-                <div  className={`h-full flex justify-center items-center ${createTaskToggle !== "hidden" && "h-4 md:h-[55%]  lg:h-[52%] xl:h-[51%] 2xl:h-[55%]"}`}>
+                <div  className={`h-full flex justify-center items-center ${createTaskToggle !== "hidden" && "h-20 md:h-[55%] lg:h-[52%] xl:h-[51%] 2xl:h-[55%]"}`}>
                   <img src={Rolling} alt="loading svg" className="w-9 " />
                 </div>
               ) : (
@@ -303,8 +292,6 @@ const Task = () => {
               ) : (
                 <section className="tasks-list">
                   <UserTaskList
-                    completeTask={completeTask}
-                    deleteTask={deleteTask} 
                     taskLists={tasks}
                     fetchTaskToEdit={fetchTaskToEdit}
                     setSelectedTaskIdToEdit={setSelectedTaskIdToEdit}
