@@ -3,9 +3,11 @@ import api from "../lib/api"
 
 export const useApiDeleteTask = (apiSuccess, apiError) => {
   const [token, setToken] = useState(localStorage.getItem("token"))
+  const [isLoading, setIsLoading] = useState(false)
 
   // Handling user delete task
   const handleDeleteTask = async (taskId) => {
+    setIsLoading(true)
     try {
       const res = await api.delete(`/task/${taskId}`, {
         headers: {
@@ -16,11 +18,16 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
 
     } catch (error) {
       apiError(`An error occurred while deleting task ${taskId}:`, error)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 200)
     }
   }
 
   // Handling user complete task
   const handleCompleteTask = async (taskId) => {
+    setIsLoading(true)
     try {
       const res = await api.delete(`/task_complete/${taskId}`, {
         headers: {
@@ -31,11 +38,16 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
 
     } catch (error) {
       apiError(`An error occurred while completing task ${taskId}:`, error)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 200)
     }
   }
 
   // Delete task by id (Permanently delete one task) and call fetchTaskListDeleted  to update the deleted task list
   const deleteCompletedTaskById = async (taskId) => {
+    setIsLoading(true)
     try {
       const res = await api.delete(`/task_completed/${taskId}/complete`, {
         headers: {
@@ -46,11 +58,16 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
 
     } catch (error) {
       apiError(error.message)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 200)
     }
   }
 
   // Delete all task and call fetchTaskListDeleted  to update the deleted task list
   const deleteAllCompletedTask = async () => {
+    setIsLoading(true)
     try {
       const res = await api.delete("/task_completed/complete_all", {
         headers: {
@@ -61,11 +78,16 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
 
     } catch (error) {
       apiError(error.message)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 200)
     }
   }
 
   // Delete task by id (Permanently delete one task) and call fetchTaskListDeleted  to update the deleted task list
   const deletedTaskById = async (taskId) => {
+    setIsLoading(true)
     try {
       const res = await api.delete(`/task_deleted/${taskId}/delete`, {
         headers: {
@@ -76,11 +98,16 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
 
     } catch (error) {
       apiError(error.message)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 200)
     }
   }
 
   // Delete all task and call fetchTaskListDeleted  to update the deleted task list
   const deletedAllTaskDelete = async () => {
+    setIsLoading(true)
     try {
       const res = await api.delete("/task_deleted/delete_all", {
         headers: {
@@ -90,6 +117,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
       apiSuccess(res.data.message)
     } catch (error) {
       apiError(error.message)
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 200)
     }
   }
   
