@@ -278,12 +278,12 @@ const Task = () => {
                 />
               </section>
               {isLoading ? (
-                <div  className={`h-full flex justify-center items-center ${createTaskToggle !== "hidden" && "h-10 mt-10"}`}>
+                <div  className={`h-full flex justify-center items-center ${createTaskToggle !== "hidden" && "h-4 md:h-[55%]  lg:h-[52%] xl:h-[51%] 2xl:h-[55%]"}`}>
                   <img src={Rolling} alt="loading svg" className="w-9 " />
                 </div>
               ) : (
                 tasks.length === 0 ? (
-                <section className={`h-full flex items-center justify-center bg-bg-input rounded-md ${createTaskToggle !== "hidden" && "h-2/5 md:h-[55%]  lg:h-[52%] xl:h-[51%] 2xl:h-[55%]" }`}>
+                <section className={`h-full flex items-center justify-center bg-bg-input rounded-md ${createTaskToggle !== "hidden" && "h-2/5 md:h-[55%] lg:h-[52%] xl:h-[51%] 2xl:h-[55%]" }`}>
                    <div className="text-white text-center">
                       <h1 className="text-xl mb-5 mf:mb-0 md:mr-5 md:text-3xl font-medium">Click the button create task to create a new task</h1>
                       <img src={NoTaskToShow} alt="no task image" className="w-48 mx-auto" />
