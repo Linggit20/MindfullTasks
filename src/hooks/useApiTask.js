@@ -52,6 +52,7 @@ export const useApiTasks =  (apiError) => {
 
   //  Fetching all user deleted task
   const fetchTasksDeleted = async () => {
+    setIsLoading(true)
     try {
       const res = await api.get("/task_deleted", {
         headers: {
