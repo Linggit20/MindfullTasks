@@ -2,7 +2,8 @@ import { faCheck, faListCheck, faPenToSquare, faTrash } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import TaskInfo from "../../components/TaskInfo"
 
-const UserTaskList = ({taskLists, fetchTaskToEdit, setSelectedTaskIdToEdit, getTaskInfo, taskInfo, showTaskInfo, setShowTaskInfo, handleDeleteTask, fetchTasksDeleted, fetchTasks, handleCompleteTask, fetchTasksCompleted, setCreateTaskToggle}) => {
+const UserTaskList = ({taskLists, fetchTaskToEdit, setSelectedTaskIdToEdit, getTaskInfo, taskInfo, showTaskInfo, setShowTaskInfo, setCreateTaskToggle, completeTask, deleteTask}) => {
+
   return (
     <div className="text-white bg-bg-input px-4 py-3 rounded-md h-full">
       <h1 className='text-xl font-medium mb-5'>Task Lists<span className="ml-1 text-blue-500"><FontAwesomeIcon icon={faListCheck} /></span></h1>
@@ -14,7 +15,7 @@ const UserTaskList = ({taskLists, fetchTaskToEdit, setSelectedTaskIdToEdit, getT
               {task.task_title}
             </span>
             <div className="flex items-center py-2 px-4 gap-3">
-              <button className='bg-green-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-700 duration-300 transition-all group' onClick={() => {handleCompleteTask(task.id), fetchTasks, fetchTasksCompleted}}>
+              <button className='bg-green-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-700 duration-300 transition-all group' onClick={() => completeTask(task.id)}>
               <FontAwesomeIcon icon={faCheck} />
               <span className='absolute text-[12px] w-36 -top-[3rem] -left-[3rem] bg-body text-center py-2 rounded-md hidden duration-300 transition-all group-hover:block'>Mark as completed</span>
               </button>
@@ -22,7 +23,7 @@ const UserTaskList = ({taskLists, fetchTaskToEdit, setSelectedTaskIdToEdit, getT
                 <FontAwesomeIcon icon={faPenToSquare} />
                 <span className='absolute text-[12px] w-12 -top-[3rem] -left-[1rem] bg-body text-center py-2 rounded-md hidden group-hover:block'>Edit</span>
               </button>
-              <button className='bg-red-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-red-700 duration-300 transition-all group' onClick={() => {handleDeleteTask(task.id), fetchTasks, fetchTasksDeleted}}>
+              <button className='bg-red-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-red-700 duration-300 transition-all group' onClick={() => deleteTask(task.id)}>
                 <FontAwesomeIcon icon={faTrash} />
                 <span className='absolute text-[12px] w-16 -top-[3rem] -left-[1rem] bg-body text-center py-2 rounded-md hidden duration-300 transition-all group-hover:block'>Delete</span>
               </button>

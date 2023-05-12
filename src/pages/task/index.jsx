@@ -232,6 +232,17 @@ const Task = () => {
     }
   }
 
+  const completeTask = (taskId) => {
+    handleCompleteTask(taskId)
+    fetchTasks()
+    fetchTasksCompleted()
+  }
+  const deleteTask = (taskId) => {
+    handleDeleteTask(taskId)
+    fetchTasks()
+    fetchTasksDeleted()
+  }
+
   return (
     <>
       <ToastContainer
@@ -292,6 +303,8 @@ const Task = () => {
               ) : (
                 <section className="tasks-list">
                   <UserTaskList
+                    completeTask={completeTask}
+                    deleteTask={deleteTask} 
                     taskLists={tasks}
                     fetchTaskToEdit={fetchTaskToEdit}
                     setSelectedTaskIdToEdit={setSelectedTaskIdToEdit}
