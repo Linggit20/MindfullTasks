@@ -9,21 +9,29 @@ const WarningMessage = ({showWarningMessage, handleHideWarningMessage, deleteCom
     switch(true) {
       case (taskIdToDelete && isActiveComplete):
         deleteCompletedTaskById(taskIdToDelete)
-        setTaskIdToDelete(null)
-        fetchTasksCompleted()
+        .then(() => {
+          setTaskIdToDelete(null)
+          fetchTasksCompleted()
+        })
         break
       case (taskIdToDelete && isActiveDelete):
         deletedTaskById(taskIdToDelete)
-        setTaskIdToDelete(null)
-        fetchTasksDeleted()
+        .then(() => {
+          setTaskIdToDelete(null)
+          fetchTasksDeleted()
+        })
         break
       case (!taskIdToDelete && isActiveComplete):
         deleteAllCompletedTask()
-        fetchTasksCompleted()
+        .then(() => {
+          fetchTasksCompleted()
+        })
         break
       case (!taskIdToDelete && isActiveDelete):
         deletedAllTaskDelete()
-        fetchTasksDeleted()
+        .then(() => {
+          fetchTasksDeleted()
+        })
         break
       default:
         break

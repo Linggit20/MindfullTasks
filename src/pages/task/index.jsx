@@ -279,7 +279,7 @@ const Task = () => {
                 />
               </section>
               {isLoading ? (
-                <div  className={`h-full flex justify-center items-center ${createTaskToggle !== "hidden" && "h-20 md:h-[55%] lg:h-[52%] xl:h-[51%] 2xl:h-[55%]"}`}>
+                <div  className={`h-full flex justify-center items-center ${createTaskToggle !== "hidden" && "h-10 md:h-[55%] lg:h-[52%] xl:h-[51%] 2xl:h-[55%]"}`}>
                   <img src={Rolling} alt="loading svg" className="w-9 " />
                 </div>
               ) : (
