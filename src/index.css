@@ -18,6 +18,7 @@
 
 input[type="date"]::-webkit-calendar-picker-indicator {
   background-image: url(./assets/calendar.png);
+  cursor: pointer;
 }
 
 main::-webkit-scrollbar {

@@ -9,7 +9,7 @@ const UploadProfilePicture = ({showForm, hideUploadForm, uploadProfileImage, set
         <div>
           <label htmlFor="upload-image" className="text-lg font-medium">Upload Profile Picture</label>
           <input
-            className="mt-5 bg-bg-focus w-full rounded-md py-2 px-3"
+            className="mt-5 bg-bg-focus w-full rounded-md py-2 px-3 cursor-pointer"
             id="upload-image"
             type="file"
             name="image"
