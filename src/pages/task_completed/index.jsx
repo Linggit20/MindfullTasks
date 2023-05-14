@@ -91,8 +91,8 @@ const TaskCompleted = () => {
         })
       }
   }
-  const [ , , deleteCompletedTaskById, deleteAllCompletedTask, , ] = useApiDeleteTask(apiSuccess, apiError)
   const [setToken, token, tasks, tasksCompleted, tasksDeleted, , , , , , , , , , fetchTasks, fetchTasksCompleted, fetchTasksDeleted, , isLoading] = useApiTasks(apiError)
+  const [ , , deleteCompletedTaskById, deleteAllCompletedTask, , ] = useApiDeleteTask(apiSuccess, apiError)
   const disable = tasksCompleted.length === 0 ? true : false
   const [profileUrl, fetchDefaultProfile] = useFetchProfilePic(apiError)
     

@@ -121,11 +121,11 @@ const Task = () => {
     }
 
   }
-  const [handleDeleteTask, handleCompleteTask, , , , ] = useApiDeleteTask(apiSuccess, apiError)
   const [setToken, token, tasks, tasksCompleted, tasksDeleted, taskTitle, taskBody, taskStart,
           taskEnd, taskUpdate, setTaskTitle, setTaskBody, setTaskStart, setTaskEnd,
           fetchTasks, fetchTasksCompleted, fetchTasksDeleted, fetchTaskToEdit, isLoading
         ] = useApiTasks(apiError)
+  const [handleDeleteTask, handleCompleteTask, , , , ] = useApiDeleteTask(apiSuccess, apiError)
   const [profileUrl, fetchDefaultProfile] = useFetchProfilePic(apiError)
     
   useEffect(() => {
