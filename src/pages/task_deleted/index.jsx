@@ -98,8 +98,8 @@ const TaskDeleted = () => {
     
   useEffect(() => {
     fetchTasks()
-    fetchTasksCompleted()
     fetchTasksDeleted()
+    fetchTasksCompleted()
     fetchDefaultProfile()
   }, [])
   

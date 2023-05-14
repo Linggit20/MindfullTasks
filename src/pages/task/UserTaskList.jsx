@@ -14,15 +14,29 @@ const UserTaskList = ({taskLists, fetchTaskToEdit, setSelectedTaskIdToEdit, getT
               {task.task_title}
             </span>
             <div className="flex items-center py-2 px-4 gap-3">
-              <button className='bg-green-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-700 duration-300 transition-all group' onClick={() => {handleCompleteTask(task.id), fetchTasksCompleted(), fetchTasks()}}>
-              <FontAwesomeIcon icon={faCheck} />
+              <button
+                className='bg-green-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-700 duration-300 transition-all group'
+                onClick={() => {handleCompleteTask(task.id)
+                  .then(() => {
+                    fetchTasks()
+                    fetchTasksCompleted()
+                  })}}
+              >
+                <FontAwesomeIcon icon={faCheck} />
               <span className='absolute text-[12px] w-36 -top-[3rem] -left-[3rem] bg-body text-center py-2 rounded-md hidden duration-300 transition-all group-hover:block'>Mark as completed</span>
               </button>
               <button className='bg-blue-600 px-2 py-1 rounded-md  cursor-pointer relative hover:bg-blue-700 duration-300 transition-all group' onClick={() => {fetchTaskToEdit(task.id), setSelectedTaskIdToEdit(task.id), setCreateTaskToggle('block')}}>
                 <FontAwesomeIcon icon={faPenToSquare} />
                 <span className='absolute text-[12px] w-12 -top-[3rem] -left-[1rem] bg-body text-center py-2 rounded-md hidden group-hover:block'>Edit</span>
               </button>
-              <button className='bg-red-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-red-700 duration-300 transition-all group' onClick={() => {handleDeleteTask(task.id), fetchTasksDeleted(), fetchTasks()}}>
+              <button
+                className='bg-red-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-red-700 duration-300 transition-all group'
+                onClick={() => {handleDeleteTask(task.id)
+                  .then(() => {
+                    fetchTasks()
+                    fetchTasksDeleted()
+                  })}}
+              >
                 <FontAwesomeIcon icon={faTrash} />
                 <span className='absolute text-[12px] w-16 -top-[3rem] -left-[1rem] bg-body text-center py-2 rounded-md hidden duration-300 transition-all group-hover:block'>Delete</span>
               </button>

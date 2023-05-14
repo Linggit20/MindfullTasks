@@ -6,29 +6,31 @@ const WarningMessage = ({showWarningMessage, handleHideWarningMessage, deleteCom
   const isActiveDelete = location.pathname === "/archived/deleted"
 
   const handleDeleteTask = () => {
-    if(taskIdToDelete){
-      if (isActiveComplete) {
+    switch(true) {
+      case (taskIdToDelete && isActiveComplete):
         deleteCompletedTaskById(taskIdToDelete)
+        setTaskIdToDelete(null)
         fetchTasksCompleted()
-      }
-      if (isActiveDelete) {
+        break
+      case (taskIdToDelete && isActiveDelete):
         deletedTaskById(taskIdToDelete)
+        setTaskIdToDelete(null)
         fetchTasksDeleted()
-      }
-      setTaskIdToDelete(null)
-
-    } else {
-      if (isActiveComplete) {
+        break
+      case (!taskIdToDelete && isActiveComplete):
         deleteAllCompletedTask()
         fetchTasksCompleted()
-      }
-      if (isActiveDelete) {
+        break
+      case (!taskIdToDelete && isActiveDelete):
         deletedAllTaskDelete()
         fetchTasksDeleted()
-      }
+        break
+      default:
+        break
     }
     handleHideWarningMessage()
   }
+
 
   return (
     <div className={`bg-black bg-opacity-20 fixed left-0 right-0 h-screen top-0 flex justify-center items-center z-50 ${showWarningMessage}`}>
