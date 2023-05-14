@@ -24,13 +24,10 @@ export const useApiTasks =  (apiError) => {
         },
       })
       setTasks(res.data.tasks)
+      setIsLoading(false)
 
     } catch (error) {
       apiError("An error occurred while fetching tasks:", error)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -44,13 +41,10 @@ export const useApiTasks =  (apiError) => {
         },
       })
       setTasksCompleted(res.data.completed_task)
+      setIsLoading(false)
 
     } catch (error) {
       apiError("An error occurred while fetching completed tasks:", error)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -64,13 +58,10 @@ export const useApiTasks =  (apiError) => {
         },
       })
       setTasksDeleted(res.data.deleted_task)
-
+      setIsLoading(false)
+      
     } catch (error) {
       apiError("An error occurred while fetching deleted task list:", error)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 

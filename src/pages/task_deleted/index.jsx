@@ -216,7 +216,7 @@ const TaskDeleted = () => {
                 tasksDeleted.length === 0 ? (
                   <section className={`h-full flex items-center justify-center bg-bg-input rounded-md`}>
                     <div className='text-white text-center'>
-                      <h1 className='text-xl mb-5 mf:mb-0 md:mr-5 md:text-3xl font-medium'>No completed tasks to display</h1>
+                      <h1 className='text-xl mb-5 mf:mb-0 md:mr-5 md:text-3xl font-medium'>No deleted tasks to display</h1>
                       <img src={NoTaskToShow} alt="no task image" className='w-48 mx-auto' />
                     </div>
                   </section>

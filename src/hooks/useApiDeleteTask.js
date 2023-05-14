@@ -15,13 +15,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-
+      setIsLoading(false)
+      
     } catch (error) {
       apiError(`An error occurred while deleting task ${taskId}:`, error)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -35,13 +32,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
+      setIsLoading(false)
 
     } catch (error) {
       apiError(`An error occurred while completing task ${taskId}:`, error)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -55,13 +49,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
+      setIsLoading(false)
 
     } catch (error) {
       apiError(error.message)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -75,13 +66,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
-
+      setIsLoading(false)
+      
     } catch (error) {
       apiError(error.message)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -95,13 +83,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
+      setIsLoading(false)
 
     } catch (error) {
       apiError(error.message)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
 
@@ -115,12 +100,10 @@ export const useApiDeleteTask = (apiSuccess, apiError) => {
         },
       })
       apiSuccess(res.data.message)
+      setIsLoading(false)
+
     } catch (error) {
       apiError(error.message)
-    } finally {
-      setTimeout(() => {
-        setIsLoading(false)
-      }, 200)
     }
   }
   
