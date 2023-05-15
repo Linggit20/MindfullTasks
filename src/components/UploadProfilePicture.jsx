@@ -23,7 +23,7 @@ const UploadProfilePicture = ({showForm, hideUploadForm, uploadProfileImage, set
           <input
             type="submit"
             value="Upload"
-            className="cursor-pointer bg-green-600 px-4 py-1 rounded-md duration-300 transition-all hover:bg-green-700"
+            className="cursor-pointer bg-green-700 px-4 py-1 rounded-md duration-300 transition-all hover:bg-green-800"
             onClick={() => setShowForm("hidden")}
           />
         </div>
