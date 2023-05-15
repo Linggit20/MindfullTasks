@@ -25,7 +25,7 @@ const UserTaskDeletedList = ({tasksDeleted, getTaskInfo, taskInfo, showTaskInfo,
                 {taskDelete.task_title}
               </span>
               <div className="flex items-center py-2 px-4 gap-3">
-                <button className="bg-green-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-700 duration-300 transition-all group" onClick={() => {restoreTaskById(taskDelete.id)}}>
+                <button className="bg-green-700 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-800 duration-300 transition-all group" onClick={() => {restoreTaskById(taskDelete.id)}}>
                   <FontAwesomeIcon icon={faTrashArrowUp} />
                   <span className='absolute text-[12px] w-16 -top-[3rem] -left-[1rem] bg-body text-center py-2 rounded-md hidden duration-300 transition-all group-hover:block'>Restore</span>
                 </button>

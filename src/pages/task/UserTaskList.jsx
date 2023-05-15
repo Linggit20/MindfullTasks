@@ -15,7 +15,7 @@ const UserTaskList = ({taskLists, fetchTaskToEdit, setSelectedTaskIdToEdit, getT
             </span>
             <div className="flex items-center py-2 px-4 gap-3">
               <button
-                className='bg-green-600 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-700 duration-300 transition-all group'
+                className='bg-green-700 px-2 py-1 rounded-md cursor-pointer relative hover:bg-green-800 duration-300 transition-all group'
                 onClick={() => {handleCompleteTask(task.id)
                   .then(() => {
                     fetchTasks()

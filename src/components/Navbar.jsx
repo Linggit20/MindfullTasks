@@ -32,7 +32,7 @@ const Navbar = ({handleOpenSidebar, disable, handleShowWarningMessage, handleTog
             }
             {isActiveDelete && 
               <div className="order-2">
-                <button onClick={restoreAllTask} type="button" disabled={disable} className="mr-2 bg-green-600 py-2 px-3 rounded-md transition-all duration-300 hover:bg-green-700">Restore All</button>
+                <button onClick={restoreAllTask} type="button" disabled={disable} className="mr-2 bg-green-700 py-2 px-3 rounded-md transition-all duration-300 hover:bg-green-800">Restore All</button>
                 <button onClick={handleShowWarningMessage} type="button" disabled={disable} className="bg-red-600 py-2 px-3 rounded-md transition-all duration-300 hover:bg-red-700">Delete All</button>
               </div>
             }
