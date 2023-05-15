@@ -3,7 +3,7 @@ import React from 'react'
 const UserTaskInput = ({handleSubmitTask, taskTitle, setTaskTitle, taskBody, setTaskBody, taskStart, setTaskStart, taskEnd, setTaskEnd, selectedTaskIdToEdit, handleCancelEdit}) => {
   return (
     <>
-      <form onSubmit={handleSubmitTask} className='flex flex-col  text-white bg-bg-input px-4 py-3'>
+      <form onSubmit={handleSubmitTask} className='flex flex-col  text-white bg-bg-input px-4 py-3 rounded-md'>
         <div className='md:flex md:justify-between items-center md:gap-20 mb-4'>
           <div className='mb-4 md:mb-0 md:flex-1'>
             <label className='block mb-2' htmlFor="title">Title</label>
