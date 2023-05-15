@@ -52,7 +52,7 @@ const Login = () => {
             {error &&  <p className="font-medium absolute top-[-3.5rem] bg-red-600 px-4 py-2 rounded-md">{error}</p>}
             <div>
               <h1 className="text-4xl md:text-5xl  md:mb-8 font-bold mb-4">Login To MindfullTasks</h1>
-              <p className="font-medium mb-6">Don"t have an account yet? <Link to="/signup" className="text-orange-600">Create account</Link></p>
+              <p className="font-medium mb-6">Don't have an account yet? <Link to="/signup" className="text-orange-600">Create account</Link></p>
             </div>
             <div className="mb-6 relative">
               <input
