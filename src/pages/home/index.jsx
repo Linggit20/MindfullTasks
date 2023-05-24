@@ -5,13 +5,64 @@ import heroImage from '../../assets/heroImage.png'
 import waveTop from "../../assets/waveTop.svg"
 import waveBot from "../../assets/waveBot.svg"
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { useEffect } from 'react'
 
 const Home = () => {
   const [showSidebar, handleOpenSidebar, handleCloseSidebar] = useSidebar()
+  const customId = "custom-id-yes"
+  const existingToast = toast.isActive(customId)
+
+  useEffect(() => {
+    const notify = () => {
+      const successMsg = 'If you can\'t login or signup. Try again in a few minutes.'
+
+      if (existingToast) {
+        toast.update(existingToast, {
+          render: successMsg,
+          type: toast.TYPE.INFO,
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeButton: true,
+          closeOnClick: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }) 
+      } else {
+        toast.info(successMsg, {
+          toastId: customId,
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+    }
+    notify()
+
+  }, [])
 
   return (
     <>
       <Sidebar showSidebar={showSidebar} handleCloseSidebar={handleCloseSidebar}/>
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="light"
+      />
       <header>
         <Navbar handleOpenSidebar={handleOpenSidebar} />
       </header>
